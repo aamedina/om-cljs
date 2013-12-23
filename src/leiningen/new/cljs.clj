@@ -27,8 +27,8 @@
        (render "resources/less/badges.less" data)]
       ["resources/less/bootstrap.less"
        (render "resources/less/bootstrap.less" data)]
-      ["resources/less/bootstrap-overrides.less"
-       (render "resources/less/bootstrap-overrides.less")]
+      ["resources/less/overrides.less"
+       (render "resources/less/overrides.less")]
       ["resources/less/breadcrumbs.less"
        (render "resources/less/breadcrumbs.less" data)]
       ["resources/less/button-groups.less"
