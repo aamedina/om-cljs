@@ -4,9 +4,8 @@
   :license {:name ""
             :url ""}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2127"]
+                 [org.clojure/clojurescript "0.0-2138"]
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
-                 [org.clojure/core.match "0.2.0"]
                  [riddley "0.1.6"]
                  [prismatic/dommy "0.1.2"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
