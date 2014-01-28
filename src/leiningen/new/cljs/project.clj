@@ -9,7 +9,11 @@
                  [om "0.3.0"]
                  [sablono "0.2.3"]
                  [riddley "0.1.6"]
-                 [prismatic/dommy "0.1.2"]]
+                 [prismatic/dommy "0.1.2"]
+                 [cider/cider-nrepl "0.1.0-SNAPSHOT"]]
+  :repl-options {:nrepl-middleware
+                 [cider.nrepl.middleware.doc/wrap-doc
+                  cider.nrepl.middleware.complete/wrap-complete]}
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
                                   [ring "1.2.0"]
                                   [compojure "1.1.6"]
