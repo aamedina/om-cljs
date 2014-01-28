@@ -1,16 +1,14 @@
-<<<<<<< HEAD
-cljs
-====
-
-cljs template
+om-cljs template
 =======
-# cljs
+# om-cljs
 
 A Leiningen template for ClojureScript projects.
 
 Comes with vanilla Bootstrap 3 LESS for CSS, a dev server with easy to use ClojureScript REPL support, and a "hello, world!" Om component to get you started!
 
 ## Usage
+
+To create a new project type "lein new om-cljs project-name"
 
 Fire up a REPL and when you're in your user namespace, type (go) to start the dev server on localhost:3000.
 
