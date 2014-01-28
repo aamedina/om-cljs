@@ -14,6 +14,8 @@
       [".gitignore" (render ".gitignore" data)]
 
       ["README.md" (render "README.md" data)]
+
+      ["epl.html" (render "epl.html" data)]
       
       ["project.clj" (render "project.clj" data)]
       ["src/{{sanitized}}/core.cljs" (render "src/core.cljs" data)]
