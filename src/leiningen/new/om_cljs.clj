@@ -1,15 +1,15 @@
-(ns leiningen.new.cljs
+(ns leiningen.new.om-cljs
   (:require [leiningen.new.templates :refer [renderer name-to-path ->files]]
             [leiningen.core.main :as main]))
 
-(def render (renderer "cljs"))
+(def render (renderer "om-cljs"))
 
-(defn cljs
+(defn om-cljs
   ""
   [name]
   (let [data {:name name
               :sanitized (name-to-path name)}]
-    (main/info "Generating fresh 'lein new' cljs project.")
+    (main/info "Generating fresh 'lein new' om-cljs project.")
     (->files data
       [".gitignore" (render ".gitignore" data)]
 
