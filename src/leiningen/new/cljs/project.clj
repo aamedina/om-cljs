@@ -1,11 +1,13 @@
 (defproject {{name}} "0.1.0-SNAPSHOT"
-  :description ""
-  :url ""
-  :license {:name ""
-            :url ""}
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :repositories {"sonatype"
+                 "http://oss.sonatype.org/content/repositories/snapshots"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2138"]
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
+                 [om "0.3.0"]
+                 [sablono "0.2.3"]
                  [riddley "0.1.6"]
                  [prismatic/dommy "0.1.2"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
