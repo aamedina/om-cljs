@@ -1,6 +1,5 @@
 om-cljs template
 =======
-# om-cljs
 
 A Leiningen template for ClojureScript projects.
 
