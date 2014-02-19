@@ -6,6 +6,7 @@
    [cemerick.austin]
    [cemerick.austin.repls
     :refer (browser-repl-env browser-connected-repl-js exec)]
+   [weasel.repl.websocket :as weasel]
    [cljs.closure :as cljsc]
    [clojure.java.shell :refer (sh with-sh-dir)]
    [clojure.java.browse :refer (browse-url)]
@@ -36,7 +37,7 @@
 
 (defroutes app
   (route/resources "/")
-  (ANY "*" req (index)))
+  (ANY "*" req (io/resource "public/index.html")))
 
 (def system
   "A Var containing an object representing the application under
@@ -52,7 +53,8 @@
     (fn [system]
       (if-not (:server system)
         {:server (run-jetty #'app {:port 3000 :join? false})
-         :repl-env (reset! browser-repl-env (cemerick.austin/repl-env))}
+         :repl-env (reset! browser-repl-env (weasel/repl-env
+                                             :ip "0.0.0.0" :port 9001))}
         (do (.start (:server system)) system)))))
 
 (defn start

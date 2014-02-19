@@ -1,5 +1,5 @@
 (ns {{name}}.core
-    (:require [clojure.browser.repl]
+    (:require [weasel.repl :as repl]
               [cljs.core.async :as a :refer [<! >! put! take! chan]]
               [om.core :as om :include-macros true]
               [sablono.core :as html :refer [html] :include-macros true]
@@ -7,11 +7,15 @@
     (:require-macros [cljs.core.async.macros :as a :refer [go go-loop]]
                      [dommy.macros :refer [sel sel1 node deftemplate]]))
 
+(repl/connect "ws://localhost:9001" :verbose true)
+
 (enable-console-print!)
 
+(defn hello-world
+  [data owner]
+  (om/component
+   (html [:h1 "Hello, world!"])))
+
 (defn ^:export -main []
-  (om/root {}
-    (fn [data owner]
-      (om/component
-        (html [:h1 "Hello, world!"])))
-    (sel1 :#content)))
+  (om/root hello-world
+    {} {:target (sel1 :#content)}))
