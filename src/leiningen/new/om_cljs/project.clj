@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure "1.6.0-beta1"]
                  [org.clojure/clojurescript "0.0-2156"]
                  [org.clojure/core.async "0.1.278.0-76b25b-alpha"]
-                 [om "0.5.0-rc1"]
+                 [om "0.5.0"]
                  [sablono "0.2.6"]
                  [riddley "0.1.6"]
                  [prismatic/dommy "0.1.2"]
@@ -15,7 +15,7 @@
                                   [ring "1.2.1"]
                                   [compojure "1.1.6"]
                                   [enlive "1.1.4"]]
-                   :plugins [[com.cemerick/austin "0.1.4-SNAPSHOT"]]
+                   :plugins [[com.cemerick/austin "0.1.4"]]
                    :source-paths ["dev"]}}
   :plugins [[lein-cljsbuild "1.0.2"]]
   :cljsbuild {:builds
