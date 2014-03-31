@@ -6,7 +6,6 @@
    [cemerick.austin]
    [cemerick.austin.repls
     :refer (browser-repl-env browser-connected-repl-js exec)]
-   [weasel.repl.websocket :as weasel]
    [cljs.closure :as cljsc]
    [clojure.java.shell :refer (sh with-sh-dir)]
    [clojure.java.browse :refer (browse-url)]
@@ -19,8 +18,6 @@
    [clojure.string :as str]
    [clojure.test :as test]
    [clojure.tools.namespace.repl :refer (refresh refresh-all)]
-   [cemerick.austin]
-   [cemerick.austin.repls :as repls :refer [browser-repl-env exec]]
    [compojure.core :refer (GET ANY POST defroutes)]
    [compojure.route :as route]
    [compojure.handler :refer [site]]
@@ -33,7 +30,7 @@
   []
   [:body]
   (enlive/append
-    (enlive/html [:script (repls/browser-connected-repl-js)])))
+   (enlive/html [:script (repls/browser-connected-repl-js)])))
 
 (defroutes app
   (route/resources "/")
@@ -49,13 +46,12 @@
   #'system."
   []
   (alter-var-root
-    #'system
-    (fn [system]
-      (if-not (:server system)
-        {:server (run-jetty #'app {:port 3000 :join? false})
-         :repl-env (reset! browser-repl-env (weasel/repl-env
-                                             :ip "0.0.0.0" :port 9001))}
-        (do (.start (:server system)) system)))))
+   #'system
+   (fn [system]
+     (if-not (:server system)
+       {:server (run-jetty #'app {:port 3000 :join? false})
+        :repl-env (reset! browser-repl-env (cemerick.austin/repl-env))}
+       (do (.start (:server system)) system)))))
 
 (defn start
   "Starts the system running, updates the Var #'system."
