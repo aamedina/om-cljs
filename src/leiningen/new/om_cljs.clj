@@ -28,7 +28,7 @@
        (render "resources/public/index.html" data)]
 
       ["resources/.bowerrc"
-       (render "resources/.bowerrc" data)]     
+       (render "resources/.bowerrc" data)]
 
       ["resources/public/css/goog.css"
        (render "resources/public/css/goog.css" data)]
