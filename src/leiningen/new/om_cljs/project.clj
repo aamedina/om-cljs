@@ -17,6 +17,7 @@
                    :plugins [[com.cemerick/austin "0.1.5-SNAPSHOT"]]
                    :source-paths ["dev"]}}
   :plugins [[lein-cljsbuild "1.0.3"]]
+  :hooks [leiningen.cljsbuild]
   :cljsbuild {:builds
               [{:id "dev"
                 :source-paths ["src"]

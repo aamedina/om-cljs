@@ -1,5 +1,5 @@
 (ns {{name}}.core
-    (:require [clojure.browser.repl :as repl]
+    (:require [weasel.repl :as repl]
               [cljs.core.async :as a :refer [<! >! put! take! chan]]
               [om.core :as om :include-macros true]
               [sablono.core :as html :refer [html] :include-macros true]
@@ -15,5 +15,6 @@
    (html [:h1 "Hello, world!"])))
 
 (defn ^:export -main []
+  (repl/connect "ws://localhost:9001")
   (om/root hello-world
     {} {:target (sel1 :#content)}))
