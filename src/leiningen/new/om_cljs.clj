@@ -29,6 +29,9 @@
 
       ["resources/.bowerrc"
        (render "resources/.bowerrc" data)]
+      
+      ["resources/build.sh"
+       (render "resources/build.sh" data)]
 
       ["resources/public/css/goog.css"
        (render "resources/public/css/goog.css" data)]

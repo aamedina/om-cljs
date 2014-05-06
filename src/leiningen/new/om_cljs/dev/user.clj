@@ -2,35 +2,23 @@
   "Tools for interactive development with the REPL. This file should
   not be included in a production build of the application."
   (:require
-   [clojure.edn :as edn]
    [cemerick.austin]
    [cemerick.austin.repls
     :refer (browser-repl-env browser-connected-repl-js exec)]
-   [cljs.closure :as cljsc]
-   [clojure.java.shell :refer (sh with-sh-dir)]
-   [clojure.java.browse :refer (browse-url)]
    [clojure.java.io :as io]
-   [clojure.java.javadoc :refer (javadoc)]
-   [clojure.pprint :refer (pprint)]
-   [clojure.reflect :refer (reflect)]
-   [clojure.repl :refer (apropos dir doc find-doc pst source)]
-   [clojure.set :as set]
-   [clojure.string :as str]
-   [clojure.test :as test]
    [clojure.tools.namespace.repl :refer (refresh refresh-all)]
    [compojure.core :refer (GET ANY POST defroutes)]
    [compojure.route :as route]
-   [compojure.handler :refer [site]]
    [net.cgrand.enlive-html :as enlive :refer [deftemplate]]
-   [ring.util.response :as res]
-   [ring.adapter.jetty :refer (run-jetty)]))
+   [ring.adapter.jetty :refer (run-jetty)]
+   [weasel.repl.websocket :as repl]))
 
 (deftemplate index
   (io/resource "public/index.html")
   []
   [:body]
   (enlive/append
-   (enlive/html [:script (repls/browser-connected-repl-js)])))
+   (enlive/html [:script ])))
 
 (defroutes app
   (route/resources "/")
@@ -50,7 +38,8 @@
    (fn [system]
      (if-not (:server system)
        {:server (run-jetty #'app {:port 3000 :join? false})
-        :repl-env (reset! browser-repl-env (cemerick.austin/repl-env))}
+        :repl-env (reset! browser-repl-env (repl/repl-env :ip "0.0.0.0"
+                                                          :port 9001))}
        (do (.start (:server system)) system)))))
 
 (defn start
