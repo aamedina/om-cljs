@@ -4,16 +4,16 @@
   :repositories {"sonatype"
                  "http://oss.sonatype.org/content/repositories/snapshots"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2202"]
-                 [org.clojure/core.async "0.1.301.0-deb34a-alpha"]
-                 [om "0.6.2"]
-                 [sablono "0.2.16"]
+                 [org.clojure/clojurescript "0.0-2234"]
+                 [org.clojure/core.async "0.1.303.0-886421-alpha"]
+                 [om "0.6.4"]
+                 [sablono "0.2.17"]
                  [prismatic/dommy "0.1.2"]
                  [weasel "0.2.0"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
-                                  [ring "1.2.1"]
-                                  [compojure "1.1.6"]
-                                  [enlive "1.1.4"]]
+                                  [ring "1.3.0"]
+                                  [compojure "1.1.8"]
+                                  [enlive "1.1.5"]]
                    :plugins [[com.cemerick/austin "0.1.5-SNAPSHOT"]]
                    :source-paths ["dev"]}}
   :plugins [[lein-cljsbuild "1.0.3"]]
