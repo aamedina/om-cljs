@@ -22,18 +22,7 @@
       
       ["resources/public/404.html"
        (render "resources/public/404.html" data)]
-      ["resources/public/favicon.ico"
-       (render "resources/public/favicon.ico" data)]
       ["resources/public/index.html"
        (render "resources/public/index.html" data)]
-
-      ["resources/.bowerrc"
-       (render "resources/.bowerrc" data)]
-      
-      ["resources/build.sh"
-       (render "resources/build.sh" data)]
-
-      ["resources/public/css/goog.css"
-       (render "resources/public/css/goog.css" data)]
 
       ["dev/user.clj" (render "dev/user.clj" data)])))

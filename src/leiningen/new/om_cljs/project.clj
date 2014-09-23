@@ -1,22 +1,22 @@
 (defproject {{name}} "0.1.0-SNAPSHOT"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :repositories {"sonatype"
-                 "http://oss.sonatype.org/content/repositories/snapshots"}
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2234"]
-                 [org.clojure/core.async "0.1.303.0-886421-alpha"]
-                 [om "0.6.4"]
-                 [sablono "0.2.17"]
-                 [prismatic/dommy "0.1.2"]
-                 [weasel "0.2.0"]]
-  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
-                                  [ring "1.3.0"]
-                                  [compojure "1.1.8"]
+  :repositories {"sonatype" "https://oss.sonatype.org/content/groups/public/"}
+  :dependencies [[org.clojure/clojure "1.7.0-alpha2"]
+                 [org.clojure/clojurescript "0.0-2342"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [om "0.7.3"]
+                 [sablono "0.2.22"]
+                 [cljs-http "0.1.16"]
+                 [weasel "0.4.0-SNAPSHOT"]]
+  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.7"]
+                                  [ring "1.3.1"]
+                                  [ring/ring-defaults "0.1.1"]
+                                  [compojure "1.1.9"]
                                   [enlive "1.1.5"]]
-                   :plugins [[com.cemerick/austin "0.1.5-SNAPSHOT"]]
+                   :plugins [[com.cemerick/austin "0.2.0-SNAPSHOT"]]
                    :source-paths ["dev"]}}
-  :plugins [[lein-cljsbuild "1.0.3"]]
+  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
   :hooks [leiningen.cljsbuild]
   :cljsbuild {:builds
               [{:id "dev"

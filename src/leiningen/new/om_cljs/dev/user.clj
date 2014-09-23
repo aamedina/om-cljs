@@ -4,25 +4,22 @@
   (:require
    [cemerick.austin]
    [cemerick.austin.repls
-    :refer (browser-repl-env browser-connected-repl-js exec)]
+    :refer [browser-repl-env browser-connected-repl-js exec]]
    [clojure.java.io :as io]
-   [clojure.tools.namespace.repl :refer (refresh refresh-all)]
-   [compojure.core :refer (GET ANY POST defroutes)]
+   [clojure.tools.namespace.repl :refer [refresh refresh-all]]
+   [compojure.core :refer [ANY defroutes]]
    [compojure.route :as route]
    [net.cgrand.enlive-html :as enlive :refer [deftemplate]]
-   [ring.adapter.jetty :refer (run-jetty)]
+   [ring.adapter.jetty :refer [run-jetty]]
+   [ring.middleware.defaults :refer :all]
    [weasel.repl.websocket :as repl]))
 
-(deftemplate index
-  (io/resource "public/index.html")
-  []
-  [:body]
-  (enlive/append
-   (enlive/html [:script ])))
-
-(defroutes app
+(defroutes routes
   (route/resources "/")
-  (ANY "*" req (io/resource "public/index.html")))
+  (ANY "*" [] (slurp (io/resource "public/index.html"))))
+
+(def app
+  (wrap-defaults routes site-defaults))
 
 (def system
   "A Var containing an object representing the application under
