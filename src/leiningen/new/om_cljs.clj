@@ -14,14 +14,11 @@
       [".gitignore" (render ".gitignore" data)]
 
       ["README.md" (render "README.md" data)]
-
-      ["epl.html" (render "epl.html" data)]
       
       ["project.clj" (render "project.clj" data)]
-      ["src/{{sanitized}}/core.cljs" (render "src/core.cljs" data)]
+      ["dev/{{sanitized}}/dev.cljs" (render "dev/dev.cljs" data)]
+      ["src/{{sanitized}}/main.cljs" (render "src/main.cljs" data)]
       
-      ["resources/public/404.html"
-       (render "resources/public/404.html" data)]
       ["resources/public/index.html"
        (render "resources/public/index.html" data)]
 

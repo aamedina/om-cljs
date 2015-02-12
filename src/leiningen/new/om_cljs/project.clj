@@ -1,35 +1,45 @@
 (defproject {{name}} "0.1.0-SNAPSHOT"
-  :license {:name "Eclipse Public License - v 1.0"
+  :description ""
+  :url ""
+  :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :repositories {"sonatype" "https://oss.sonatype.org/content/groups/public/"}
-  :dependencies [[org.clojure/clojure "1.7.0-alpha2"]
-                 [org.clojure/clojurescript "0.0-2342"]
+  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
+                 [org.clojure/clojurescript "0.0-2816"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
-                 [om "0.7.3"]
-                 [sablono "0.2.22"]
-                 [cljs-http "0.1.16"]
-                 [weasel "0.4.0-SNAPSHOT"]
-                 [prismatic/dommy "1.0.0"]]
-  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.7"]
-                                  [ring "1.3.1"]
-                                  [ring/ring-defaults "0.1.1"]
-                                  [compojure "1.1.9"]
-                                  [enlive "1.1.5"]]
-                   :plugins [[com.cemerick/austin "0.2.0-SNAPSHOT"]]
-                   :source-paths ["dev"]}}
-  :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]]
-  :hooks [leiningen.cljsbuild]
-  :cljsbuild {:builds
-              [{:id "dev"
-                :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/main.js"
-                           :output-dir "resources/public/js/out"
-                           :source-map true
-                           :optimizations :none}}
-               {:id "prod"
-                :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/main.js"
-                           :pretty-print false
-                           :preamble ["react/react.min.js"]
-                           :externs ["react/externs/react.js"]
-                           :optimizations :advanced}}]})
+                 [org.omcljs/om "0.8.8" :exclusions [cljsjs/react]]
+                 [cljsjs/react-with-addons "0.12.2-4"]
+                 [sablono "0.3.2-SNAPSHOT"]
+                 [prismatic/om-tools "0.3.10"]
+                 [prismatic/dommy "1.0.0"]
+                 [environ "1.0.0"]]
+  :plugins [[lein-cljsbuild "1.0.4"]
+            [lein-environ "1.0.0"]]
+  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.9"]
+                                  [weasel "0.6.0-SNAPSHOT"]
+                                  [figwheel "0.2.3-SNAPSHOT"]]
+                   :plugins [[lein-figwheel "0.2.3-SNAPSHOT"]
+                             [com.cemerick/austin "0.1.7-SNAPSHOT"]]
+                   :source-paths ["dev"]
+                   :figwheel {:http-server-root "public"
+                              :server-port 3449
+                              :css-dirs "resources/public/css"
+                              :repl false
+                              :server-logfile ".figwheel"}}}
+  :cljsbuild {:builds [{:id "dev"
+                        :source-paths ["src" "dev"]
+                        :compiler {:main {{name}}.dev
+                                   :output-to "resources/public/js/main.js"
+                                   :output-dir "resources/public/js/out"
+                                   :asset-path "js/out"
+                                   :optimizations :none
+                                   :cache-analysis true
+                                   :source-map true}}
+                       {:id "prod"
+                        :source-paths ["src"]
+                        :compiler {:main {{name}}.main
+                                   :output-to "resources/public/js/main.js"
+                                   :asset-path "js/out"
+                                   :pretty-print false
+                                   :optimizations :advanced
+                                   :source-map true}}]}
+  :jvm-opts ^:replace ["-Xms512m" "-Xmx512m" "-server"])
