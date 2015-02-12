@@ -3,24 +3,28 @@ om-cljs template
 
 A Leiningen template for ClojureScript projects.
 
-Comes with vanilla Bootstrap 3 LESS for CSS, a dev server with easy to use ClojureScript REPL support, and a "hello, world!" Om component to get you started!
+## Installation
+
+1. git clone https://github.com/aamedina/om-cljs.git
+2. cd om-cljs && lein install
 
 ## Usage
 
-To create a new project type "lein new om-cljs project-name"
+Using two shells for development...
 
-Fire up a REPL and when you're in your user namespace, type (go) to start the dev server on localhost:3000.
-
-You can exit the CLJS REPL by typing :cljs/quit, and reset (and reload all Clojure namespaces as well, useful for easing macro development in ClojureScript) by calling (reset). Calling (reset) will also bring you back into a CLJS REPL.
-
-To compile the LESS, go into the resources directory of your project and type "npm install" (to pull down grunt modules), and globally install grunt-cli if you don't have it already by calling "npm install -g grunt-cli".
-
-Now you can recompile the LESS automatically by running "grunt watch", which will recompile when one of the LESS source files are changed, or alternatively simply run "grunt recess" for a once off compilation. 
+1. lein new om-cljs project-name
+2. cd project-name
+3. (in shell one) lein repl :headless 
+... (alternatively, you can cider-jack-in) ...
+4. (in shell two) lein figwheel
+5. Connect to the REPL and run browser-repl if you want a bREPL.
+6. Have fun!
 
 ## License
 
-Copyright © 2014 Adrian Medina
+Copyright © 2015 Adrian Medina
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
->>>>>>> release/0.1.1
+
+>>>>>>> release/0.1.3

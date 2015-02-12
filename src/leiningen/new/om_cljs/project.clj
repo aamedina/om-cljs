@@ -8,7 +8,7 @@
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [org.omcljs/om "0.8.8" :exclusions [cljsjs/react]]
                  [cljsjs/react-with-addons "0.12.2-4"]
-                 [sablono "0.3.2-SNAPSHOT"]
+                 [sablono "0.3.1"]
                  [prismatic/om-tools "0.3.10"]
                  [prismatic/dommy "1.0.0"]
                  [environ "1.0.0"]]

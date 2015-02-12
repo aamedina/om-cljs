@@ -1,4 +1,4 @@
-(defproject om-cljs/lein-template "0.1.2"
+(defproject om-cljs/lein-template "0.1.3"
   :description ""
   :url ""
   :license {:name "Eclipse Public License"
