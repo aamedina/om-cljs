@@ -13,8 +13,8 @@ A Leiningen template for ClojureScript projects using Om.
 1. lein new om-cljs $project-name
 2. cd $project-name
 3. lein repl :headless OR `cider-jack-in` when using CIDER 
-4. type `(go)` when you have a REPL prompt in the user namespace
-5. Connect to the REPL and run `cljs-repl` if you want a bREPL.
+4. Evaluate `(go)` when you have a REPL prompt in the user namespace
+5. Evaluate `(cljs-repl)` if you want a browser REPL.
 6. Have fun!
 
 ## License
