@@ -4,7 +4,7 @@
             [om-tools.core :refer-macros [defcomponent]]
             [dommy.core :refer-macros [sel1]]))
 
-(defonce app-state (atom {:text "Hello, production!"}))
+(defonce app-state (atom {:text "Hello, world!"}))
 
 (defcomponent app
   [data owner]

@@ -14,7 +14,7 @@
                       :ring-handler 'user/handler}
    :build-ids ["dev"]
    :all-builds [{:id "dev"
-                 :source-paths ["src/cljs"]
+                 :source-paths ["src"]
                  :compiler {:main "{{name}}.main"
                             :output-to "resources/public/js/main.js"
                             :output-dir "resources/public/js/out"
