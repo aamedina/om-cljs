@@ -14,9 +14,12 @@
                  [sablono "0.7.3"]]
   :plugins [[lein-cljsbuild "1.1.3"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.11"]
+                                  [com.cemerick/piggieback "0.2.1"]
                                   [figwheel-sidecar "0.5.4-7"]]
-                   :plugins [[lein-figwheel "0.5.4-7"]]
+                   :plugins [[lein-figwheel "0.5.4-7"]]                   
                    :source-paths ["dev"]
+                   :repl-options {:nrepl-middleware
+                                  [cemerick.piggieback/wrap-cljs-repl]}
                    :figwheel {:http-server-root "public"
                               :server-port 3449
                               :css-dirs ["resources/public/css"]
