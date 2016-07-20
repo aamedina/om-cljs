@@ -16,7 +16,6 @@
       ["README.md" (render "README.md" data)]
       
       ["project.clj" (render "project.clj" data)]
-      ["dev/{{sanitized}}/dev.cljs" (render "dev/dev.cljs" data)]
       ["src/{{sanitized}}/main.cljs" (render "src/main.cljs" data)]
       
       ["resources/public/index.html"
