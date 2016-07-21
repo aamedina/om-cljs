@@ -15,6 +15,7 @@
    :build-ids ["dev"]
    :all-builds [{:id "dev"
                  :source-paths ["src"]
+                 :figwheel true
                  :compiler {:main "{{name}}.main"
                             :output-to "resources/public/js/main.js"
                             :output-dir "resources/public/js/out"
