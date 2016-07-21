@@ -9,7 +9,6 @@
   {:figwheel-options {:http-server-root "public"
                       :server-port 3449
                       :css-dirs ["resources/public/css"]
-                      :repl false
                       :server-logfile "/tmp/figwheel.log"
                       :ring-handler 'user/handler}
    :build-ids ["dev"]
